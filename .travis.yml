@@ -1,0 +1,9 @@
+sudo: require
+services:
+    - docker
+
+before_install:
+    - docker build -t pradyumnadocker/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run pradyumnadocker/docker-react npm run test -- --coverage
