@@ -7,3 +7,16 @@ before_install:
 
 script:
     - docker run pradyumnadocker/docker-react npm run test -- --coverage
+
+deploy:
+    provider: elasticbeanstalk
+    region: "us-east-2"
+    app: "Dockerreact"
+    env: "Dockerreact-env"
+    bucket_name: "elasticbeanstalk-us-east-2-854163894608" 
+    bucket_path: "Dockerreact"
+    on:
+        branch: master
+    access_key_id: $access_key_id
+    secret_access_key: 
+        secure: "$secret_access_key"  
